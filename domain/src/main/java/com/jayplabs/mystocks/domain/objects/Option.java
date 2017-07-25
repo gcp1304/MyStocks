@@ -4,12 +4,12 @@ import java.util.Date;
 
 public class Option {
 
-    private String mSymbol;
+    private String mSymbol; // E.g FB Dec 15 2017 $180 Call
     private String mName;
     private String mContractType;
     private String mTransactionType;
     private String mNumberOfContracts;
-    private String mPremium;
+    private String mAvgPrice;
     private String mCost;
     private Date mTransactionDate;
     private String mStrikePrice;
@@ -60,12 +60,12 @@ public class Option {
         mNumberOfContracts = numberOfContracts;
     }
 
-    public String getPremium() {
-        return mPremium;
+    public String getAvgPrice() {
+        return mAvgPrice;
     }
 
-    public void setPremium(String premium) {
-        mPremium = premium;
+    public void setAvgPrice(String avgPrice) {
+        mAvgPrice = avgPrice;
     }
 
     public String getCost() {

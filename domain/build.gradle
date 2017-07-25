@@ -30,4 +30,9 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:26.0.0-beta2'
     testImplementation 'junit:junit:4.12'
     implementation project(':data')
+    compile group: 'io.reactivex.rxjava2', name: 'rxjava', version: '2.1.2'
+    compile group: 'io.reactivex.rxjava2', name: 'rxandroid', version: '2.0.1'
+    compile 'com.fernandocejas:arrow:1.0.0'
+
+
 }

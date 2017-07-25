@@ -7,7 +7,7 @@ public class Profile {
     private String mEmail;
     private String mBankAccount;
     private String mBroker;
-    private String mBrokerage;
+    private String mBrokerageCost;
 
     public String getFirstName() {
         return mFirstName;
@@ -49,11 +49,11 @@ public class Profile {
         mBroker = broker;
     }
 
-    public String getBrokerage() {
-        return mBrokerage;
+    public String getBrokerageCost() {
+        return mBrokerageCost;
     }
 
-    public void setBrokerage(String brokerage) {
-        mBrokerage = brokerage;
+    public void setBrokerageCost(String brokerageCost) {
+        mBrokerageCost = brokerageCost;
     }
 }

@@ -9,7 +9,7 @@ public class Stock {
     private String mTransactionType;
     private Date mTransactionDate;
     private int mQuantity;
-    private String mTransactionPrice;
+    private String mAvgPrice;
     private String mCost;
     private String mGrantType;
     private String mBroker;
@@ -58,12 +58,12 @@ public class Stock {
         mQuantity = quantity;
     }
 
-    public String getTransactionPrice() {
-        return mTransactionPrice;
+    public String getAvgPrice() {
+        return mAvgPrice;
     }
 
-    public void setTransactionPrice(String transactionPrice) {
-        mTransactionPrice = transactionPrice;
+    public void setAvgPrice(String avgPrice) {
+        mAvgPrice = avgPrice;
     }
 
     public String getCost() {
