@@ -1,38 +1,31 @@
-apply plugin: 'com.android.library'
+apply plugin: 'java'
 
-android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.0"
+//noinspection GroovyUnusedAssignment
+sourceCompatibility = 1.7
+//noinspection GroovyUnusedAssignment
+targetCompatibility = 1.7
 
+configurations {
+    provided
+}
 
-    defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
-
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
+sourceSets {
+    main {
+        compileClasspath += configurations.provided
     }
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    implementation 'com.android.support:appcompat-v7:26.0.0-beta2'
-    testImplementation 'junit:junit:4.12'
-    implementation project(':data')
-    compile group: 'io.reactivex.rxjava2', name: 'rxjava', version: '2.1.2'
-    compile group: 'io.reactivex.rxjava2', name: 'rxandroid', version: '2.0.1'
-    compile 'com.fernandocejas:arrow:1.0.0'
+    def domainDependencies = rootProject.ext.domainDependencies
+    def domainTestDependencies = rootProject.ext.domainTestDependencies
 
+    provided domainDependencies.javaxAnnotation
 
+    compile domainDependencies.javaxInject
+    compile domainDependencies.rxJava
+    compile domainDependencies.arrow
+
+    testCompile domainTestDependencies.junit
+    testCompile domainTestDependencies.mockito
+    testCompile domainTestDependencies.assertj
 }

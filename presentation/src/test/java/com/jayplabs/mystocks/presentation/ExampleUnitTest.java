@@ -1,4 +1,4 @@
-package com.jayplabs.mystocks;
+package com.jayplabs.mystocks.presentation;
 
 import org.junit.Test;
 

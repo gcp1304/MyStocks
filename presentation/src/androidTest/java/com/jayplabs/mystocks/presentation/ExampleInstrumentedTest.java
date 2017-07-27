@@ -1,4 +1,4 @@
-package com.jayplabs.mystocks;
+package com.jayplabs.mystocks.presentation;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
