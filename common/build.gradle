@@ -1,0 +1,36 @@
+apply plugin: 'com.android.library'
+
+android {
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion globalConfiguration.getAt("androidCompileSdkVersion")
+    buildToolsVersion globalConfiguration.getAt("androidBuildToolsVersion")
+
+    dataBinding {
+        enabled = true
+    }
+
+    defaultConfig {
+        minSdkVersion globalConfiguration.getAt("androidMinSdkVersion")
+        targetSdkVersion globalConfiguration.getAt("androidTargetSdkVersion")
+        versionCode globalConfiguration.getAt("androidVersionCode")
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    def commonDependencies = rootProject.ext.commonDependencies
+
+    compile project(':domain')
+    compile commonDependencies.rxJava
+    compile commonDependencies.dagger
+    annotationProcessor commonDependencies.daggerCompiler
+    provided commonDependencies.javaxAnnotation
+    compile commonDependencies.javaxInject
+    compile commonDependencies.appcompat
+    compile commonDependencies.design
+}

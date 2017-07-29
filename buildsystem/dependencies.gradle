@@ -12,11 +12,13 @@ ext {
     androidMinSdkVersion = 21
     androidTargetSdkVersion = 26
     androidCompileSdkVersion = 26
+    appcompatVersion = '26.0.0-beta2'
+    designVersion = '26.0.0-beta2'
+    recyclerViewVersion = '26.0.0-beta2'
 
     //Libraries
     daggerVersion = '2.11'
     butterKnifeVersion = '8.7.0'
-    recyclerViewVersion = '26.0.0-beta2'
     rxJavaVersion = '2.1.2'
     rxAndroidVersion = '2.0.1'
     arrowVersion = '1.0.0'
@@ -26,6 +28,7 @@ ext {
     okHttpVersion = '2.5.0'
     androidAnnotationsVersion = '26.0.0-beta2'
     arrowVersion = '1.0.0'
+    architectureComponentVersion = '1.0.0-alpha5'
 
     //Testing
     robolectricVersion = '3.1.1'
@@ -58,7 +61,8 @@ ext {
             javaxAnnotation:    "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
             javaxInject:        "javax.inject:javax.inject:${javaxInjectVersion}",
             rxJava:             "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
-            arrow:              "com.fernandocejas:arrow:${arrowVersion}"
+            arrow:              "com.fernandocejas:arrow:${arrowVersion}",
+
     ]
 
     domainTestDependencies = [
@@ -76,7 +80,9 @@ ext {
             rxAndroid:          "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
             javaxAnnotation:    "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
             javaxInject:        "javax.inject:javax.inject:${javaxInjectVersion}",
-            androidAnnotations: "com.android.support:support-annotations:${androidAnnotationsVersion}"
+            androidAnnotations: "com.android.support:support-annotations:${androidAnnotationsVersion}",
+            room:               "android.arch.persistence.room:runtime:${architectureComponentVersion}",
+            roomCompiler:       "android.arch.persistence.room:compiler:${architectureComponentVersion}"
     ]
 
     dataTestDependencies = [
@@ -84,5 +90,15 @@ ext {
             assertj:            "org.assertj:assertj-core:${assertJVersion}",
             mockito:            "org.mockito:mockito-core:${mockitoVersion}",
             robolectric:        "org.robolectric:robolectric:${robolectricVersion}",
+    ]
+
+    commonDependencies = [
+            rxJava:             "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
+            daggerCompiler:     "com.google.dagger:dagger-compiler:${daggerVersion}",
+            dagger:             "com.google.dagger:dagger:${daggerVersion}",
+            javaxAnnotation:    "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            javaxInject:        "javax.inject:javax.inject:${javaxInjectVersion}",
+            appcompat:          "com.android.support:appcompat-v7:${appcompatVersion}",
+            design:             "com.android.support:design:${designVersion}"
     ]
 }

@@ -1,70 +1,48 @@
 package com.jayplabs.mystocks.domain.interactor;
 
-import com.fernandocejas.arrow.checks.Preconditions;
-import com.jayplabs.mystocks.domain.executor.PostExecutionThread;
-import com.jayplabs.mystocks.domain.executor.ThreadExecutor;
+import com.jayplabs.mystocks.domain.repository.Repository;
 import io.reactivex.Observable;
+import io.reactivex.Scheduler;
 import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.disposables.Disposable;
 import io.reactivex.observers.DisposableObserver;
-import io.reactivex.schedulers.Schedulers;
+import javax.inject.Named;
 
-/**
- * Abstract class for a Use Case (Interactor in terms of Clean Architecture).
- * This interface represents a execution unit for different use cases (this means any use case
- * in the application should implement this contract).
- *
- * By convention each UseCase implementation will return the result using a {@link DisposableObserver}
- * that will execute its job in a background thread and will post the result in the UI thread.
- */
-public abstract class UseCase<T, Params> {
-    private final ThreadExecutor mThreadExecutor;
-    private final PostExecutionThread mPostExecutionThread;
-    private final CompositeDisposable mDisposables;
+public abstract class UseCase<REQUEST_DATA, RESPONSE_DATA, REPOSITORY extends Repository> {
 
-    public UseCase(ThreadExecutor threadExecutor,
-        PostExecutionThread postExecutionThread,
-        CompositeDisposable disposables) {
-        mThreadExecutor = threadExecutor;
-        mPostExecutionThread = postExecutionThread;
-        mDisposables = disposables;
+    protected final REPOSITORY mRepository;
+
+    private final Scheduler mThreadScheduler;
+
+    private final Scheduler mPostExecutionScheduler;
+
+    private CompositeDisposable mDisposable = new CompositeDisposable();
+
+    public UseCase(final REPOSITORY repository, @Named("Thread") final Scheduler threadScheduler,
+        @Named("PostExecution") final Scheduler postExecutionScheduler) {
+        mRepository = repository;
+        mThreadScheduler = threadScheduler;
+        mPostExecutionScheduler = postExecutionScheduler;
     }
 
-    /**
-     * Builds an {@link Observable} which will be used when executing the current {@link UseCase}.
-     */
-    abstract Observable<T> buildUseCaseObservable(Params params);
+    protected abstract Observable<RESPONSE_DATA> buildObservable(REQUEST_DATA requestData);
 
-    /**
-     * Executes the current use case.
-     *
-     * @param observer {@link DisposableObserver} which will be listening to the observable build
-     * by {@link #buildUseCaseObservable(Params)} ()} method.
-     * @param params Parameters (Optional) used to build/execute this use case.
-     */
-    public void execute(DisposableObserver<T> observer, Params params) {
-        Preconditions.checkNotNull(observer);
-        final Observable<T> observable = this.buildUseCaseObservable(params)
-            .subscribeOn(Schedulers.from(mThreadExecutor))
-            .observeOn(mPostExecutionThread.getScheduler());
-        addDisposable(observable.subscribeWith(observer));
+    public void execute(final REQUEST_DATA requestData,
+        final DefaultObserver<RESPONSE_DATA> observer) {
+        mDisposable.add(buildObservable(requestData).subscribeOn(mThreadScheduler)
+            .observeOn(mPostExecutionScheduler).subscribeWith(observer));
+
+        mRepository.register(this);
     }
 
-    /**
-     * Dispose from current {@link CompositeDisposable}.
-     */
+    public boolean isDisposed() {
+        return mDisposable.isDisposed();
+    }
+
     public void dispose() {
-        if (!mDisposables.isDisposed()) {
-            mDisposables.dispose();
+        if (!isDisposed()) {
+            mDisposable.dispose();
         }
+        mRepository.unregister(this);
     }
 
-    /**
-     * Dispose from current {@link CompositeDisposable}.
-     */
-    private void addDisposable(Disposable disposable) {
-        Preconditions.checkNotNull(disposable);
-        Preconditions.checkNotNull(mDisposables);
-        mDisposables.add(disposable);
-    }
 }

@@ -1,12 +1,12 @@
 package com.jayplabs.mystocks.domain.repository;
 
-import com.jayplabs.mystocks.domain.objects.Dividend;
+import com.jayplabs.mystocks.domain.objects.DividendDto;
 import io.reactivex.Observable;
 import java.util.List;
 
 public interface DividendRepository {
 
-    Observable<List<Dividend>> dividends();
+    Observable<List<DividendDto>> dividends();
 
-    Observable<Dividend> dividend(final String symbol);
+    Observable<DividendDto> dividend(final String symbol);
 }

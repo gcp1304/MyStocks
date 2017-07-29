@@ -1,12 +1,12 @@
 package com.jayplabs.mystocks.domain.repository;
 
-import com.jayplabs.mystocks.domain.objects.Option;
+import com.jayplabs.mystocks.domain.objects.OptionDto;
 import io.reactivex.Observable;
 import java.util.List;
 
 public interface OptionRepository {
 
-    Observable<List<Option>> options();
+    Observable<List<OptionDto>> options();
 
-    Observable<Option> option(final String symbol);
+    Observable<OptionDto> option(final String symbol);
 }

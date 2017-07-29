@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'realm-android'
 
 android {
     defaultPublishConfig "debug"
@@ -37,6 +38,7 @@ dependencies {
     def testDependencies = rootProject.ext.dataTestDependencies
 
     compile project(':domain')
+    compile project(':common')
     provided dataDependencies.javaxAnnotation
     compile dataDependencies.javaxInject
     compile dataDependencies.okHttp
@@ -44,6 +46,8 @@ dependencies {
     compile dataDependencies.rxJava
     compile dataDependencies.rxAndroid
     compile dataDependencies.androidAnnotations
+    compile dataDependencies.room
+    annotationProcessor dataDependencies.roomCompiler
 
     testCompile testDependencies.junit
     testCompile testDependencies.assertj
