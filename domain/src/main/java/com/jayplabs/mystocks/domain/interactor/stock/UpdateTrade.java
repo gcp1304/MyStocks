@@ -22,6 +22,6 @@ public class UpdateTrade extends UseCase<StockDto, Boolean, StockRepository> {
 
     @Override
     protected Observable<Boolean> buildObservable(final StockDto stockDto) {
-        return mRepository.updateStockTrade(stockDto);
+        return mRepository.updateTrade(stockDto);
     }
 }

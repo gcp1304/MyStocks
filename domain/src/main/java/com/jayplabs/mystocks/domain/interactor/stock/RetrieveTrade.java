@@ -21,6 +21,6 @@ public class RetrieveTrade extends UseCase<String, StockDto, StockRepository> {
 
     @Override
     protected Observable<StockDto> buildObservable(final String stockId) {
-        return mRepository.getStockTrade(stockId);
+        return mRepository.retrieveTrade(stockId);
     }
 }

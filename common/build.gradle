@@ -27,6 +27,8 @@ dependencies {
 
     compile project(':domain')
     compile commonDependencies.rxJava
+    compile commonDependencies.rxAndroid
+    compile commonDependencies.androidAnnotations
     compile commonDependencies.dagger
     annotationProcessor commonDependencies.daggerCompiler
     provided commonDependencies.javaxAnnotation

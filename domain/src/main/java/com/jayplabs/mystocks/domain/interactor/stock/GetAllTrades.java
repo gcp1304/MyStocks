@@ -22,6 +22,6 @@ public class GetAllTrades extends UseCaseForAllData<List<StockDto>, StockReposit
 
     @Override
     protected Observable<List<StockDto>> buildObservable() {
-        return mRepository.getAllStockTrades();
+        return mRepository.getAllTrades();
     }
 }

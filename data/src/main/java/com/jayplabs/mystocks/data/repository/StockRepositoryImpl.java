@@ -21,27 +21,27 @@ public class StockRepositoryImpl extends
 
 
     @Override
-    public Observable<String> createNewStockTrade(final StockDto stockDto) {
+    public Observable<String> createTrade(final StockDto stockDto) {
         return mDataStore.createTrade(mEntityDtoMapper.map1(stockDto));
     }
 
     @Override
-    public Observable<Boolean> updateStockTrade(final StockDto stockDto) {
+    public Observable<Boolean> updateTrade(final StockDto stockDto) {
         return mDataStore.updateTrade(mEntityDtoMapper.map1(stockDto));
     }
 
     @Override
-    public Observable<List<StockDto>> getAllStockTrades() {
+    public Observable<List<StockDto>> getAllTrades() {
         return mDataStore.getAllTrades().map(stockEntities -> mEntityDtoMapper.map2(stockEntities));
     }
 
     @Override
-    public Observable<StockDto> getStockTrade(final String stockId) {
+    public Observable<StockDto> retrieveTrade(final String stockId) {
         return mDataStore.retrieveTrade(stockId).map(stockEntity -> mEntityDtoMapper.map2(stockEntity));
     }
 
     @Override
-    public Observable<Boolean> deleteStockTrade(final String stockId) {
+    public Observable<Boolean> deleteTrade(final String stockId) {
         return mDataStore.deleteTrade(stockId);
     }
 }

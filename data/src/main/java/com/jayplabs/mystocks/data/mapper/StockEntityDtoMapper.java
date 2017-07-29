@@ -19,17 +19,23 @@ public class StockEntityDtoMapper extends BaseMapper<StockEntity, StockDto> {
 
     @Override
     public StockEntity map1(StockDto stockDto) {
-        if (stockDto == null) {
-            return null;
+        StockEntity stockEntity = null;
+        if (stockDto != null) {
+            stockEntity = new StockEntity();
+            stockEntity.setStockId(stockDto.getStockId());
+            stockEntity.setSymbol(stockDto.getSymbol());
+            stockEntity.setName(stockDto.getName());
+            stockEntity.setTransactionType(stockDto.getTransactionType());
+            stockEntity.setTransactionDate(stockDto.getTransactionDate());
+            stockEntity.setQuantity(stockDto.getQuantity());
+            stockEntity.setPrice(stockDto.getPrice());
+            stockEntity.setCost(stockDto.getCost());
+            stockEntity.setGrantType(stockDto.getGrantType());
+            stockEntity.setBroker(stockDto.getBroker());
+            stockEntity.setBrokerage(stockDto.getBrokerage());
+            stockEntity.setTax(stockDto.getTax());
+            stockEntity.setTotalCost(stockDto.getTotalCost());
         }
-        StockEntity stockEntity = new StockEntity();
-        stockEntity.setStockId(stockDto.getStockId());
-        stockEntity.setSymbol(stockDto.getSymbol());
-        stockEntity.setTransactionType(stockDto.getTransactionType());
-        stockEntity.setTransactionDate(stockDto.getTransactionDate());
-        stockEntity.setQuantity(stockDto.getQuantity());
-        stockEntity.setPrice(stockDto.getAvgPrice());
-        stockEntity.setBroker(stockDto.getBroker());
         return stockEntity;
     }
 
@@ -48,7 +54,7 @@ public class StockEntityDtoMapper extends BaseMapper<StockEntity, StockDto> {
             stockDto.setTransactionType(stockEntity.getTransactionType());
             stockDto.setTransactionDate(stockEntity.getTransactionDate());
             stockDto.setQuantity(stockEntity.getQuantity());
-            stockDto.setAvgPrice(stockEntity.getPrice());
+            stockDto.setPrice(stockEntity.getPrice());
             stockDto.setCost(stockEntity.getCost());
             stockDto.setGrantType(stockEntity.getGrantType());
             stockDto.setBroker(stockEntity.getBroker());

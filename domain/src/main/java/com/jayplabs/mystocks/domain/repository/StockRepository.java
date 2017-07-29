@@ -6,13 +6,13 @@ import java.util.List;
 
 public interface StockRepository extends Repository {
 
-    Observable<String> createNewStockTrade(StockDto stockDto);
+    Observable<String> createTrade(StockDto stockDto);
 
-    Observable<Boolean> updateStockTrade(StockDto stockDto);
+    Observable<Boolean> updateTrade(StockDto stockDto);
 
-    Observable<List<StockDto>> getAllStockTrades();
+    Observable<List<StockDto>> getAllTrades();
 
-    Observable<StockDto> getStockTrade(String stockId);
+    Observable<StockDto> retrieveTrade(String stockId);
 
-    Observable<Boolean> deleteStockTrade(String stockId);
+    Observable<Boolean> deleteTrade(String stockId);
 }

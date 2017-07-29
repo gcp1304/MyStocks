@@ -39,13 +39,13 @@ dependencies {
 
     compile project(':domain')
     compile project(':common')
-    provided dataDependencies.javaxAnnotation
-    compile dataDependencies.javaxInject
+    /*provided dataDependencies.javaxAnnotation
+    compile dataDependencies.javaxInject*/
     compile dataDependencies.okHttp
     compile dataDependencies.gson
-    compile dataDependencies.rxJava
+    /*compile dataDependencies.rxJava
     compile dataDependencies.rxAndroid
-    compile dataDependencies.androidAnnotations
+    compile dataDependencies.androidAnnotations*/
     compile dataDependencies.room
     annotationProcessor dataDependencies.roomCompiler
 

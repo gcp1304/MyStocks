@@ -17,7 +17,7 @@ public class LocalCashEntityStore implements CashEntityStore {
     private Realm mRealm;
     private RealmCashEntityMapper mRealmCashEntityMapper;
 
-    @Inject // TODO: 7/28/17 insert Realm.getDefaultInstance() from DI
+    @Inject
     public LocalCashEntityStore(Realm realm,
         RealmCashEntityMapper realmCashEntityMapper) {
         mRealm = realm;

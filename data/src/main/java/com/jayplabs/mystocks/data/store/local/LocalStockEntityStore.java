@@ -19,7 +19,7 @@ public class LocalStockEntityStore implements StockEntityStore {
     private RealmStockEntityMapper mRealmStockEntityMapper;
 
 
-    @Inject // TODO: 7/28/17 insert Realm.getDefaultInstance() from DI
+    @Inject
     public LocalStockEntityStore(Realm realm,
         RealmStockEntityMapper realmStockEntityMapper) {
         mRealm = realm;

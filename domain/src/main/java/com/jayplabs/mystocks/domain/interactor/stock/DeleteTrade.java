@@ -20,6 +20,6 @@ public class DeleteTrade extends UseCase<String, Boolean, StockRepository> {
 
     @Override
     protected Observable<Boolean> buildObservable(final String stockId) {
-        return mRepository.deleteStockTrade(stockId);
+        return mRepository.deleteTrade(stockId);
     }
 }
