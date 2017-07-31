@@ -1,5 +1,7 @@
 package com.jayplabs.mystocks.presentation.di.module;
 
+import com.jayplabs.mystocks.common.data.manager.NetworkManager;
+import com.jayplabs.mystocks.common.data.manager.impl.NetworkManagerImpl;
 import com.jayplabs.mystocks.presentation.App;
 import com.jayplabs.mystocks.presentation.di.scope.AppScope;
 import dagger.Module;
@@ -45,7 +47,11 @@ public class AppModule {
         return Realm.getDefaultInstance();
     }
 
-
+    @Provides
+    @AppScope
+    NetworkManager providesNetworkManager() {
+        return new NetworkManagerImpl(mApp);
+    }
 
 
 }

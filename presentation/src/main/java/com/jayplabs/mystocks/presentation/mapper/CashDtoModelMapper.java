@@ -27,8 +27,7 @@ public class CashDtoModelMapper extends BaseMapper<CashDto, CashModel> {
     public CashModel map2(final CashDto cashDto) {
         CashModel cashModel = null;
         if (cashDto != null) {
-            cashModel = new CashModel();
-            cashModel.setTransactionId(cashDto.getTransactionId());
+            cashModel = new CashModel(cashDto.getTransactionId());
             cashModel.setTransactionType(cashDto.getTransactionType());
             cashModel.setTransactionDate(cashDto.getTransactionDate());
             cashModel.setAmount(cashDto.getAmount());

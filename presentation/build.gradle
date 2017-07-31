@@ -36,13 +36,17 @@ dependencies {
     def presentationDependencies = rootProject.ext.presentationDependencies
     def presentationTestDependencies = rootProject.ext.presentationTestDependencies
 
+
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     compile project(':data')
     compile project(':domain')
     compile project(':common')
 
-    compile commonDependencies.dagger
-    annotationProcessor commonDependencies.daggerCompiler
+    compile presentationDependencies.dagger
+    annotationProcessor presentationDependencies.daggerCompiler
     compile presentationDependencies.constraintLayout
+    compile presentationDependencies.butterknife
+    annotationProcessor presentationDependencies.butterknifeCompiler
 
     androidTestCompile presentationTestDependencies.mockito
     androidTestCompile presentationTestDependencies.dexmaker

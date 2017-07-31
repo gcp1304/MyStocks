@@ -41,7 +41,10 @@ public class RealmStockEntity extends RealmObject {
     private String mTotalCost; // mCost + mBrokerage + mTax
 
     public RealmStockEntity() {
-        mStockId = createStockID();
+    }
+
+    public RealmStockEntity(final String stockId) {
+        mStockId = stockId;
     }
 
     public String getStockId() {
@@ -142,10 +145,6 @@ public class RealmStockEntity extends RealmObject {
 
     public void setTotalCost(String totalCost) {
         mTotalCost = totalCost;
-    }
-
-    private String createStockID() {
-        return UUID.randomUUID().toString().replaceAll("-", "").toUpperCase();
     }
 
 }

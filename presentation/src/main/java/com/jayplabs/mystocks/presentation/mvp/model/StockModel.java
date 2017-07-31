@@ -30,16 +30,15 @@ public class StockModel {
 
     private String mTotalCost;
 
+    public StockModel() {
+    }
+
     public StockModel(final String stockId) {
         mStockId = stockId;
     }
 
     public String getStockId() {
         return mStockId;
-    }
-
-    public void setStockId(final String stockId) {
-        mStockId = stockId;
     }
 
     public String getSymbol() {

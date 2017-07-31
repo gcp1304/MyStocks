@@ -12,12 +12,15 @@ public class CashModel {
 
     private String mAmount;
 
-    public String getTransactionId() {
-        return mTransactionId;
+    public CashModel() {
     }
 
-    public void setTransactionId(final String transactionId) {
+    public CashModel(final String transactionId) {
         mTransactionId = transactionId;
+    }
+
+    public String getTransactionId() {
+        return mTransactionId;
     }
 
     public String getTransactionType() {

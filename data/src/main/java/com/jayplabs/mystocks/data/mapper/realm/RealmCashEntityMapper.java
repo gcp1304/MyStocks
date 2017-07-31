@@ -17,7 +17,7 @@ public class RealmCashEntityMapper extends BaseMapper<RealmCashEntity, CashEntit
     public RealmCashEntity map1(CashEntity cashEntity) {
         RealmCashEntity realmCashEntity = null;
         if (cashEntity != null) {
-            realmCashEntity = new RealmCashEntity();
+            realmCashEntity = new RealmCashEntity(cashEntity.getTransactionId());
             realmCashEntity.setTransactionType(cashEntity.getTransactionType());
             realmCashEntity.setTransactionDate(cashEntity.getTransactionDate());
             realmCashEntity.setAmount(cashEntity.getAmount());

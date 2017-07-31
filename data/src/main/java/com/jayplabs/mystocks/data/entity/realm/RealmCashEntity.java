@@ -22,7 +22,10 @@ public class RealmCashEntity extends RealmObject {
     private String mAmount;
 
     public RealmCashEntity() {
-        mTransactionId = createTransactionID();
+    }
+
+    public RealmCashEntity(final String transactionId) {
+        mTransactionId = transactionId;
     }
 
     public String getTransactionId() {
@@ -51,9 +54,5 @@ public class RealmCashEntity extends RealmObject {
 
     public void setAmount(String amount) {
         mAmount = amount;
-    }
-
-    private String createTransactionID() {
-        return UUID.randomUUID().toString().replaceAll("-", "").toUpperCase();
     }
 }

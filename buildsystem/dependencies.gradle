@@ -12,12 +12,12 @@ ext {
     androidMinSdkVersion = 21
     androidTargetSdkVersion = 26
     androidCompileSdkVersion = 26
-    appcompatVersion = '26.0.0-beta2'
-    designVersion = '26.0.0-beta2'
-    recyclerViewVersion = '26.0.0-beta2'
+    appcompatVersion = '26.0.0-beta1'
+    designVersion = '26.0.0-beta1'
+    recyclerViewVersion = '26.0.0-beta1'
     constraintLayoutVersion = '1.0.2'
     architectureComponentVersion = '1.0.0-alpha5'
-    androidAnnotationsVersion = '26.0.0-beta2'
+    androidAnnotationsVersion = '26.0.0-beta1'
 
     //Libraries
     daggerVersion = '2.11'
@@ -43,9 +43,10 @@ ext {
     testingSupportLibVersion = '0.1'
 
     presentationDependencies = [
-            /*daggerCompiler:     "com.google.dagger:dagger-compiler:${daggerVersion}",
-            dagger:             "com.google.dagger:dagger:${daggerVersion}",*/
-            butterKnife:        "com.jakewharton:butterknife:${butterKnifeVersion}",
+            daggerCompiler:     "com.google.dagger:dagger-compiler:${daggerVersion}",
+            dagger:             "com.google.dagger:dagger:${daggerVersion}",
+            butterknife:        "com.jakewharton:butterknife:${butterKnifeVersion}",
+            butterknifeCompiler:"com.jakewharton:butterknife-compiler:${butterKnifeVersion}",
             recyclerView:       "com.android.support:recyclerview-v7:${recyclerViewVersion}",
             /*rxJava:             "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
             rxAndroid:          "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",

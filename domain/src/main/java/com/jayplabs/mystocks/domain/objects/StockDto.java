@@ -1,6 +1,7 @@
 package com.jayplabs.mystocks.domain.objects;
 
 import java.util.Date;
+import java.util.UUID;
 
 public class StockDto {
 
@@ -18,8 +19,17 @@ public class StockDto {
     private String mTax;
     private String mTotalCost;
 
+    /**
+     * This constructor should be used when we are converting an already existing trade item
+     * to Entity, so we already have an id variable
+     */
     public StockDto(String stockId) {
         mStockId = stockId;
+    }
+
+    public StockDto() {
+        // trade will be "uniquely" identified by this random UUID
+        mStockId = createStockID();
     }
 
     public String getStockId() {
@@ -122,4 +132,25 @@ public class StockDto {
         mTotalCost = totalCost;
     }
 
+    private String createStockID() {
+        return UUID.randomUUID().toString().replaceAll("-", "").toUpperCase();
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+
+        StockDto stockDto = (StockDto) obj;
+        return mStockId.equals(stockDto.getStockId());
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (Long.valueOf(mStockId) ^ (Long.valueOf(mStockId) >>> 32));
+    }
 }

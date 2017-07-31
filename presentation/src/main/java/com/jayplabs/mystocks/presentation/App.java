@@ -20,6 +20,7 @@ public class App extends Application {
     }
 
     private void initRealm() {
+        Realm.init(this);
         final RealmConfiguration realmConfig = new RealmConfiguration.Builder()
             .deleteRealmIfMigrationNeeded()
             .build();
@@ -28,6 +29,7 @@ public class App extends Application {
 
     private void initializeInjector() {
         mAppComponent = DaggerAppComponent.builder().appModule(new AppModule(this)).build();
+        mAppComponent.inject(this);
     }
 
     public AppComponent getAppComponent() {
