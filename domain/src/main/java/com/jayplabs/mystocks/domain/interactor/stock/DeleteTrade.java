@@ -8,7 +8,6 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
 
-@Singleton
 public class DeleteTrade extends UseCase<String, Boolean, StockRepository> {
 
     @Inject

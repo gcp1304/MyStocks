@@ -32,8 +32,6 @@ public class StockTradesPresenter extends BasePresenter<StockTradesView> {
 
     private StockDtoModelMapper mStockDtoModelMapper;
 
-    private StockModel mStockModel;
-
     @Inject
     public StockTradesPresenter(
         final NetworkManager networkManager,
@@ -41,8 +39,7 @@ public class StockTradesPresenter extends BasePresenter<StockTradesView> {
         final RetrieveTrade retrieveTrade,
         final CreateTrade createTrade, final UpdateTrade updateTrade,
         final DeleteTrade deleteTrade,
-        final StockDtoModelMapper stockDtoModelMapper,
-        final StockModel stockModel) {
+        final StockDtoModelMapper stockDtoModelMapper) {
         super(networkManager);
         mGetAllTrades = getAllTrades;
         mRetrieveTrade = retrieveTrade;
@@ -50,7 +47,6 @@ public class StockTradesPresenter extends BasePresenter<StockTradesView> {
         mUpdateTrade = updateTrade;
         mDeleteTrade = deleteTrade;
         mStockDtoModelMapper = stockDtoModelMapper;
-        mStockModel = stockModel;
     }
 
     @Override
@@ -100,7 +96,7 @@ public class StockTradesPresenter extends BasePresenter<StockTradesView> {
             @Override
             public void onNext(final StockDto stockDto) {
                 super.onNext(stockDto);
-                mStockModel = mStockDtoModelMapper.map2(stockDto);
+               // mStockModel = mStockDtoModelMapper.map2(stockDto);
                 mView.hideProgress();
             }
 

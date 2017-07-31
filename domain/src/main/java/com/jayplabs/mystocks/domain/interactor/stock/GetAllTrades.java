@@ -10,7 +10,6 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
 
-@Singleton
 public class GetAllTrades extends UseCaseForAllData<List<StockDto>, StockRepository> {
 
     @Inject

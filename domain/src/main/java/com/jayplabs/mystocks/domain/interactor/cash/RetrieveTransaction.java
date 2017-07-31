@@ -9,7 +9,6 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
 
-@Singleton
 public class RetrieveTransaction extends UseCase<String, CashDto, CashRepository> {
 
     @Inject

@@ -10,7 +10,6 @@ import javax.inject.Singleton;
  * Mapper class used to transform {@link StockEntity} (in the data layer) to {@link StockDto} in the
  * domain layer.
  */
-@Singleton
 public class StockEntityDtoMapper extends BaseMapper<StockEntity, StockDto> {
 
     @Inject

@@ -6,7 +6,6 @@ import com.jayplabs.mystocks.data.entity.realm.RealmCashEntity;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-@Singleton
 public class RealmCashEntityMapper extends BaseMapper<RealmCashEntity, CashEntity> {
 
     @Inject

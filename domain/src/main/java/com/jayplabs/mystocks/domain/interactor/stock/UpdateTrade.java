@@ -10,7 +10,6 @@ import javax.inject.Named;
 import javax.inject.Singleton;
 
 
-@Singleton
 public class UpdateTrade extends UseCase<StockDto, Boolean, StockRepository> {
 
     @Inject

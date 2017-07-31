@@ -13,7 +13,6 @@ import javax.inject.Singleton;
  * Mapper class used to transform {@link CashEntity} (in the data layer) to {@link CashDto} in the
  * domain layer.
  */
-@Singleton
 public class CashEntityDtoMapper extends BaseMapper<CashEntity, CashDto> {
 
     @Inject

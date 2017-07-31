@@ -35,7 +35,7 @@ public class AppModule {
     }
 
     @Provides
-    @Named("PostExecution")
+    @Named("PostExecutionThread")
     @AppScope
     Scheduler providePostExecutionScheduler() {
         return AndroidSchedulers.mainThread();
