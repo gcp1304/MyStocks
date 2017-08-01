@@ -1,4 +1,4 @@
-package com.jayplabs.mystocks.presentation.ui;
+package com.jayplabs.mystocks.presentation.ui.activity;
 
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;

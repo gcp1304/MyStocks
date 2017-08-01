@@ -52,7 +52,6 @@ public class StockTradesPresenter extends BasePresenter<StockTradesView> {
     @Override
     protected void onViewAttached() {
         super.onViewAttached();
-        refreshData();
     }
 
     @Override
@@ -67,10 +66,9 @@ public class StockTradesPresenter extends BasePresenter<StockTradesView> {
 
     @Override
     public void refreshData() {
-        retrieveAllTrades();
     }
 
-    private void retrieveAllTrades() {
+    /*private void retrieveAllTrades() {
         mView.showProgress();;
         mGetAllTrades.execute(new DefaultObserver<List<StockDto>>() {
             @Override
@@ -108,5 +106,5 @@ public class StockTradesPresenter extends BasePresenter<StockTradesView> {
             }
         };
         mRetrieveTrade.execute(stockId, retrieveTradeObserver);
-    }
+    }*/
 }

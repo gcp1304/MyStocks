@@ -4,8 +4,8 @@ import com.jayplabs.mystocks.common.presentation.mvp.view.View;
 import com.jayplabs.mystocks.presentation.mvp.model.StockModel;
 import java.util.List;
 
+public interface PortfolioView extends View {
 
-public interface StockTradesView extends View {
+    void listAllStocks(List<StockModel> stocks);
 
-    void displayStockDetail(StockModel stockModel);
 }

@@ -25,6 +25,7 @@ public abstract class BaseActivity<VIEW extends View,
         super.onCreate(savedInstanceState);
         mBinding = initBinding();
         mView = initView();
+        mPresenter = initPresenter().get();
         initUi();
     }
 
