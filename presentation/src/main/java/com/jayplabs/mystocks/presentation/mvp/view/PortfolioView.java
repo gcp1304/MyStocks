@@ -8,4 +8,6 @@ public interface PortfolioView extends View {
 
     void listAllStocks(List<StockModel> stocks);
 
+    void displayToast(String message);
+
 }

@@ -15,6 +15,7 @@ import com.jayplabs.mystocks.presentation.mvp.view.PortfolioView;
 import com.jayplabs.mystocks.presentation.mvp.view.impl.PortfolioViewImpl;
 import com.jayplabs.mystocks.presentation.ui.adapter.PortfolioAdapter;
 import dagger.Lazy;
+import java.util.Date;
 import java.util.List;
 import javax.inject.Inject;
 
@@ -33,7 +34,25 @@ public class PortfolioActivity extends
             public void listAllStocks(final List<StockModel> stocks) {
                 mPortfolioAdapter.setStocks(stocks);
             }
+
+            @Override
+            public void displayToast(final String message) {
+                Toast.makeText(PortfolioActivity.this, message, Toast.LENGTH_SHORT).show();
+            }
+
+
         };
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        insertDummyData();
+    }
+
+    private void insertDummyData() {
+        mPresenter.createDummyStockApple();
+        mPresenter.createDummyStockGoogle();
     }
 
     @Override
