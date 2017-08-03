@@ -16,7 +16,7 @@ public class RealmStockEntityMapper extends BaseMapper<RealmStockEntity, StockEn
     public RealmStockEntity map1(StockEntity stockEntity) {
         RealmStockEntity realmStockEntity = null;
         if (stockEntity != null) {
-            realmStockEntity = new RealmStockEntity();
+            realmStockEntity = new RealmStockEntity(stockEntity.getStockId());
             realmStockEntity.setSymbol(stockEntity.getSymbol());
             realmStockEntity.setName(stockEntity.getName());
             realmStockEntity.setTransactionType(stockEntity.getTransactionType());

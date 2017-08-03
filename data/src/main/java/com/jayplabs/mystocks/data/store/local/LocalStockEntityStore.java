@@ -6,6 +6,7 @@ import com.jayplabs.mystocks.data.mapper.realm.RealmStockEntityMapper;
 import com.jayplabs.mystocks.data.store.StockEntityStore;
 import io.reactivex.Observable;
 import io.realm.Realm;
+import io.realm.Realm.Transaction;
 import io.realm.RealmResults;
 import java.util.List;
 import javax.inject.Inject;
@@ -29,7 +30,7 @@ public class LocalStockEntityStore implements StockEntityStore {
     @Override
     public Observable<String> createTrade(final StockEntity stockEntity) {
         RealmStockEntity realmStockEntity = mRealmStockEntityMapper.map1(stockEntity);
-        mRealm.executeTransaction(realm -> realm.copyFromRealm(realmStockEntity));
+        mRealm.executeTransaction(realm -> realm.copyToRealm(realmStockEntity));
         return Observable.just(realmStockEntity.getStockId());
     }
 

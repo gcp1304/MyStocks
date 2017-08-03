@@ -1,6 +1,8 @@
 package com.jayplabs.mystocks.presentation.ui.activity;
 
 import android.databinding.DataBindingUtil;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;

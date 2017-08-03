@@ -35,12 +35,19 @@ public class PortfolioPresenter extends BasePresenter<PortfolioView> {
     }
 
     public void createDummyStockApple() {
-        StockModel stockModel = new StockModel();
+        StockModel stockModel = new StockModel("101");
         stockModel.setSymbol("APPL");
+        stockModel.setName("Apple");
         stockModel.setQuantity(100);
         stockModel.setPrice("150");
         stockModel.setTransactionType("Buy");
         stockModel.setTransactionDate(new Date());
+        stockModel.setCost("10000");
+        stockModel.setGrantType("Purchase");
+        stockModel.setBroker("Ally");
+        stockModel.setBrokerage("4.95");
+        stockModel.setTax("1.5");
+        stockModel.setTotalCost("25000");
         mCreateTrade.execute(mStockDtoModelMapper.map1(stockModel), new DefaultObserver<String>(){
 
             @Override
@@ -52,12 +59,19 @@ public class PortfolioPresenter extends BasePresenter<PortfolioView> {
     }
 
     public void createDummyStockGoogle() {
-        StockModel stockModel = new StockModel();
+        StockModel stockModel = new StockModel("201");
         stockModel.setSymbol("GOOG");
+        stockModel.setName("Google");
         stockModel.setQuantity(100);
         stockModel.setPrice("150");
         stockModel.setTransactionType("Buy");
         stockModel.setTransactionDate(new Date());
+        stockModel.setCost("10000");
+        stockModel.setGrantType("Purchase");
+        stockModel.setBroker("Ally");
+        stockModel.setBrokerage("4.95");
+        stockModel.setTax("1.5");
+        stockModel.setTotalCost("25000");
         mCreateTrade.execute(mStockDtoModelMapper.map1(stockModel), new DefaultObserver<String>(){
 
             @Override

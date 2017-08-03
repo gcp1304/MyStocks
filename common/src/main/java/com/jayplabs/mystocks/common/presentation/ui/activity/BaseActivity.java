@@ -27,6 +27,8 @@ public abstract class BaseActivity<VIEW extends View,
         mView = initView();
         mPresenter = initPresenter().get();
         initUi();
+        // TODO: 8/2/17 This may not be the right place to attach view
+        mPresenter.attachView(mView);
     }
 
     @Override
@@ -49,7 +51,6 @@ public abstract class BaseActivity<VIEW extends View,
     }
 
 
-
     public VIEW getView() {
         return mView;
     }
@@ -62,7 +63,8 @@ public abstract class BaseActivity<VIEW extends View,
 
     protected abstract void initUi();
 
-    protected static Intent getBaseStartIntent(Context context, Class<? extends BaseActivity> activityClass, boolean clearStack) {
+    protected static Intent getBaseStartIntent(Context context,
+        Class<? extends BaseActivity> activityClass, boolean clearStack) {
         Intent intent = new Intent(context, activityClass);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         if (clearStack) {
