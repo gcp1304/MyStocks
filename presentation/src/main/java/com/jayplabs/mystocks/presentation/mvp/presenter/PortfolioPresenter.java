@@ -35,7 +35,7 @@ public class PortfolioPresenter extends BasePresenter<PortfolioView> {
     }
 
     public void createDummyStockApple() {
-        StockModel stockModel = new StockModel("101");
+        StockModel stockModel = new StockModel();
         stockModel.setSymbol("APPL");
         stockModel.setName("Apple");
         stockModel.setQuantity(100);
@@ -59,7 +59,7 @@ public class PortfolioPresenter extends BasePresenter<PortfolioView> {
     }
 
     public void createDummyStockGoogle() {
-        StockModel stockModel = new StockModel("201");
+        StockModel stockModel = new StockModel();
         stockModel.setSymbol("GOOG");
         stockModel.setName("Google");
         stockModel.setQuantity(100);

@@ -9,6 +9,7 @@ import java.util.UUID;
 
 public class RealmCashEntity extends RealmObject {
 
+    @PrimaryKey
     private String mTransactionId;
 
     @Required

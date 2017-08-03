@@ -47,8 +47,8 @@ public class PortfolioActivity extends
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
+    protected void onCreate(@Nullable final Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         insertDummyData();
     }
 

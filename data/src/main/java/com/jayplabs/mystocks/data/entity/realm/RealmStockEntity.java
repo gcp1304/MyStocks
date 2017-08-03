@@ -9,6 +9,7 @@ import java.util.UUID;
 
 public class RealmStockEntity extends RealmObject {
 
+    @PrimaryKey
     private String mStockId;
 
     @Required

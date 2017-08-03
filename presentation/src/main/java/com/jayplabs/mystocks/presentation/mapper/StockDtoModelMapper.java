@@ -15,7 +15,7 @@ public class StockDtoModelMapper extends BaseMapper<StockDto, StockModel> {
     public StockDto map1(final StockModel stockModel) {
         StockDto stockDto = null;
         if (stockModel != null) {
-            stockDto = new StockDto(stockModel.getStockId());
+            stockDto = new StockDto();
             stockDto.setSymbol(stockModel.getSymbol());
             stockDto.setName(stockModel.getName());
             stockDto.setTransactionType(stockModel.getTransactionType());
