@@ -26,7 +26,7 @@ public class PortfolioAdapter extends RecyclerView.Adapter<PortfolioViewHolder> 
     public PortfolioViewHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
         PortfolioItemBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()),
             R.layout.portfolio_item, parent, false);
-        return new PortfolioViewHolder(binding);
+        return new PortfolioViewHolder(binding, mPortfolioView);
     }
 
     @Override
