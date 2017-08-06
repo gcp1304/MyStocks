@@ -36,7 +36,6 @@ public class StockEntryActivity extends BaseDaggerActivity<StockTradesView, Stoc
         return DataBindingUtil.setContentView(this, R.layout.stock_entry);
     }
 
-    @Override
     protected void initUi() {
 
     }

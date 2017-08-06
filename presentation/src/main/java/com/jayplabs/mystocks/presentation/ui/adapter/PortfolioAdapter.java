@@ -14,7 +14,7 @@ import java.util.List;
 
 public class PortfolioAdapter extends RecyclerView.Adapter<PortfolioViewHolder> {
 
-    private List<StockModel> stocks = new ArrayList<>();
+    private List<StockModel> mStocks = new ArrayList<>();
 
     private PortfolioView mPortfolioView;
 
@@ -31,17 +31,17 @@ public class PortfolioAdapter extends RecyclerView.Adapter<PortfolioViewHolder> 
 
     @Override
     public void onBindViewHolder(final PortfolioViewHolder holder, final int position) {
-        holder.bind(stocks.get(position), position);
+        holder.bind(mStocks.get(position), position);
     }
 
     @Override
     public int getItemCount() {
-        return stocks.size();
+        return mStocks.size();
     }
 
     public void setStocks(final List<StockModel> stocks) {
-        this.stocks.clear();
-        this.stocks.addAll(stocks);
+        mStocks.clear();
+        mStocks.addAll(stocks);
         notifyDataSetChanged();
 
     }
