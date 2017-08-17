@@ -6,7 +6,6 @@ import com.jayplabs.mystocks.data.mapper.realm.RealmStockEntityMapper;
 import com.jayplabs.mystocks.data.store.StockEntityStore;
 import io.reactivex.Observable;
 import io.realm.Realm;
-import io.realm.Realm.Transaction;
 import io.realm.RealmResults;
 import java.util.List;
 import javax.inject.Inject;

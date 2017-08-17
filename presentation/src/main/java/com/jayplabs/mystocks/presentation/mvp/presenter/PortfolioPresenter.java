@@ -9,6 +9,7 @@ import com.jayplabs.mystocks.presentation.mapper.StockDtoModelMapper;
 import com.jayplabs.mystocks.presentation.mvp.model.StockModel;
 import com.jayplabs.mystocks.presentation.mvp.view.PortfolioView;
 import java.util.Date;
+import java.util.UUID;
 import javax.inject.Inject;
 
 public class PortfolioPresenter extends BasePresenter<PortfolioView> {
@@ -36,18 +37,17 @@ public class PortfolioPresenter extends BasePresenter<PortfolioView> {
 
     public void createDummyStockApple() {
         StockModel stockModel = new StockModel();
+        stockModel.setStockId(createStockID());
         stockModel.setSymbol("APPL");
-        stockModel.setName("Apple");
+        stockModel.setDescription("Apple");
         stockModel.setQuantity(100);
-        stockModel.setPrice("150");
-        stockModel.setTransactionType("Buy");
-        stockModel.setTransactionDate(new Date());
-        stockModel.setCost("10000");
-        stockModel.setGrantType("Purchase");
-        stockModel.setBroker("Ally");
-        stockModel.setBrokerage("4.95");
-        stockModel.setTax("1.5");
-        stockModel.setTotalCost("25000");
+        stockModel.setPrice(150.0f);
+        stockModel.setActivity("Buy");
+        stockModel.setDate(new Date());
+        stockModel.setAmount(10000.0f);
+        stockModel.setFees(1.5f);
+        stockModel.setCommission(4.95f);
+        stockModel.setAmount(25000.0f);
         mCreateTrade.execute(mStockDtoModelMapper.map1(stockModel), new DefaultObserver<String>(){
 
             @Override
@@ -58,27 +58,7 @@ public class PortfolioPresenter extends BasePresenter<PortfolioView> {
         });
     }
 
-    public void createDummyStockGoogle() {
-        StockModel stockModel = new StockModel();
-        stockModel.setSymbol("GOOG");
-        stockModel.setName("Google");
-        stockModel.setQuantity(100);
-        stockModel.setPrice("150");
-        stockModel.setTransactionType("Buy");
-        stockModel.setTransactionDate(new Date());
-        stockModel.setCost("10000");
-        stockModel.setGrantType("Purchase");
-        stockModel.setBroker("Ally");
-        stockModel.setBrokerage("4.95");
-        stockModel.setTax("1.5");
-        stockModel.setTotalCost("25000");
-        mCreateTrade.execute(mStockDtoModelMapper.map1(stockModel), new DefaultObserver<String>(){
-
-            @Override
-            public void onNext(final String s) {
-                super.onNext(s);
-                mView.displayToast("Trade created with id: " + s);
-            }
-        });
+    private String createStockID() {
+        return UUID.randomUUID().toString().replaceAll("-", "").toUpperCase();
     }
 }

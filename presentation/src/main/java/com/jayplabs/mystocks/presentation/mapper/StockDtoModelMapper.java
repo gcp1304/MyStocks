@@ -11,23 +11,22 @@ public class StockDtoModelMapper extends BaseMapper<StockDto, StockModel> {
     public StockDtoModelMapper() {
     }
 
+
     @Override
     public StockDto map1(final StockModel stockModel) {
         StockDto stockDto = null;
         if (stockModel != null) {
             stockDto = new StockDto();
-            stockDto.setSymbol(stockModel.getSymbol());
-            stockDto.setName(stockModel.getName());
-            stockDto.setTransactionType(stockModel.getTransactionType());
-            stockDto.setTransactionDate(stockModel.getTransactionDate());
+            stockDto.setStockId(stockModel.getStockId());
+            stockDto.setDate(stockModel.getDate());
+            stockDto.setActivity(stockModel.getActivity());
             stockDto.setQuantity(stockModel.getQuantity());
+            stockDto.setSymbol(stockModel.getSymbol());
+            stockDto.setDescription(stockModel.getDescription());
             stockDto.setPrice(stockModel.getPrice());
-            stockDto.setCost(stockModel.getCost());
-            stockDto.setGrantType(stockModel.getGrantType());
-            stockDto.setBroker(stockModel.getBroker());
-            stockDto.setBrokerage(stockModel.getBrokerage());
-            stockDto.setTax(stockModel.getTax());
-            stockDto.setTotalCost(stockModel.getTotalCost());
+            stockDto.setCommission(stockModel.getCommission());
+            stockDto.setFees(stockModel.getFees());
+            stockDto.setAmount(stockModel.getAmount());
         }
         return stockDto;
     }
@@ -36,21 +35,17 @@ public class StockDtoModelMapper extends BaseMapper<StockDto, StockModel> {
     public StockModel map2(final StockDto stockDto) {
         StockModel stockModel = null;
         if (stockDto != null) {
-            stockModel = new StockModel(stockDto.getStockId());
-            stockModel.setSymbol(stockDto.getSymbol());
-            stockModel.setName(stockDto.getName());
-            stockModel.setTransactionType(stockDto.getTransactionType());
-            stockModel.setTransactionDate(stockDto.getTransactionDate());
+            stockModel = new StockModel();
+            stockModel.setStockId(stockDto.getStockId());
+            stockModel.setDate(stockDto.getDate());
+            stockModel.setActivity(stockDto.getActivity());
             stockModel.setQuantity(stockDto.getQuantity());
+            stockModel.setSymbol(stockDto.getSymbol());
+            stockModel.setDescription(stockDto.getDescription());
             stockModel.setPrice(stockDto.getPrice());
-            stockModel.setCost(stockDto.getCost());
-            stockModel.setGrantType(stockDto.getGrantType());
-            stockModel.setBroker(stockDto.getBroker());
-            stockModel.setBrokerage(stockDto.getBrokerage());
-            stockModel.setTax(stockDto.getTax());
-            stockModel.setTotalCost(stockDto.getTotalCost());
+            stockModel.setFees(stockDto.getFees());
+            stockModel.setAmount(stockDto.getAmount());
         }
         return stockModel;
-
     }
 }

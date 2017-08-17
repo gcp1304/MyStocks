@@ -20,7 +20,6 @@ import com.jayplabs.mystocks.presentation.mvp.view.PortfolioView;
 import com.jayplabs.mystocks.presentation.mvp.view.impl.PortfolioViewImpl;
 import com.jayplabs.mystocks.presentation.ui.adapter.PortfolioAdapter;
 import dagger.Lazy;
-import java.util.Date;
 import java.util.List;
 import javax.inject.Inject;
 
@@ -115,7 +114,6 @@ public class PortfolioActivity extends
 
     private void insertDummyData() {
         mPresenter.createDummyStockApple();
-        mPresenter.createDummyStockGoogle();
     }
 
     private void initToolbar() {

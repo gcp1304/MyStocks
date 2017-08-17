@@ -15,9 +15,13 @@ sourceSets {
     }
 }
 
+
 dependencies {
     def domainDependencies = rootProject.ext.domainDependencies
     def domainTestDependencies = rootProject.ext.domainTestDependencies
+
+    def globalDependencies = rootProject.ext.globalDependencies
+    compileOnly globalDependencies.lombok
 
     provided domainDependencies.javaxAnnotation
 

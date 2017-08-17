@@ -4,7 +4,6 @@ import com.jayplabs.mystocks.common.data.mapper.BaseMapper;
 import com.jayplabs.mystocks.data.entity.StockEntity;
 import com.jayplabs.mystocks.data.entity.realm.RealmStockEntity;
 import javax.inject.Inject;
-import javax.inject.Singleton;
 
 public class RealmStockEntityMapper extends BaseMapper<RealmStockEntity, StockEntity> {
 
@@ -16,19 +15,17 @@ public class RealmStockEntityMapper extends BaseMapper<RealmStockEntity, StockEn
     public RealmStockEntity map1(StockEntity stockEntity) {
         RealmStockEntity realmStockEntity = null;
         if (stockEntity != null) {
-            realmStockEntity = new RealmStockEntity(stockEntity.getStockId());
-            realmStockEntity.setSymbol(stockEntity.getSymbol());
-            realmStockEntity.setName(stockEntity.getName());
-            realmStockEntity.setTransactionType(stockEntity.getTransactionType());
-            realmStockEntity.setTransactionDate(stockEntity.getTransactionDate());
+            realmStockEntity = new RealmStockEntity();
+            realmStockEntity.setStockId(stockEntity.getStockId());
+            realmStockEntity.setDate(stockEntity.getDate());
+            realmStockEntity.setActivity(stockEntity.getActivity());
             realmStockEntity.setQuantity(stockEntity.getQuantity());
-            realmStockEntity.setAvgPrice(stockEntity.getPrice());
-            realmStockEntity.setCost(stockEntity.getCost());
-            realmStockEntity.setGrantType(stockEntity.getGrantType());
-            realmStockEntity.setBroker(stockEntity.getBroker());
-            realmStockEntity.setBrokerage(stockEntity.getBrokerage());
-            realmStockEntity.setTax(stockEntity.getTax());
-            realmStockEntity.setTotalCost(stockEntity.getTotalCost());
+            realmStockEntity.setSymbol(stockEntity.getSymbol());
+            realmStockEntity.setDescription(stockEntity.getDescription());
+            realmStockEntity.setPrice(stockEntity.getPrice());
+            realmStockEntity.setCommission(stockEntity.getCommission());
+            realmStockEntity.setFees(stockEntity.getFees());
+            realmStockEntity.setAmount(stockEntity.getAmount());
         }
         return realmStockEntity;
     }
@@ -39,18 +36,15 @@ public class RealmStockEntityMapper extends BaseMapper<RealmStockEntity, StockEn
         if (realmStockEntity != null) {
             stockEntity = new StockEntity();
             stockEntity.setStockId(realmStockEntity.getStockId());
-            stockEntity.setSymbol(realmStockEntity.getSymbol());
-            stockEntity.setName(realmStockEntity.getName());
-            stockEntity.setTransactionType(realmStockEntity.getTransactionType());
-            stockEntity.setTransactionDate(realmStockEntity.getTransactionDate());
+            stockEntity.setDate(realmStockEntity.getDate());
+            stockEntity.setActivity(realmStockEntity.getActivity());
             stockEntity.setQuantity(realmStockEntity.getQuantity());
-            stockEntity.setPrice(realmStockEntity.getAvgPrice());
-            stockEntity.setCost(realmStockEntity.getCost());
-            stockEntity.setGrantType(realmStockEntity.getGrantType());
-            stockEntity.setBroker(realmStockEntity.getBroker());
-            stockEntity.setBrokerage(realmStockEntity.getBrokerage());
-            stockEntity.setTax(realmStockEntity.getTax());
-            stockEntity.setTotalCost(realmStockEntity.getTotalCost());
+            stockEntity.setSymbol(realmStockEntity.getSymbol());
+            stockEntity.setDescription(realmStockEntity.getDescription());
+            stockEntity.setPrice(realmStockEntity.getPrice());
+            stockEntity.setCommission(realmStockEntity.getCommission());
+            stockEntity.setFees(realmStockEntity.getFees());
+            stockEntity.setAmount(realmStockEntity.getAmount());
         }
         return stockEntity;
     }

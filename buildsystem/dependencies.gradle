@@ -29,7 +29,7 @@ ext {
     javaxInjectVersion = '1'
     gsonVersion = '2.3'
     okHttpVersion = '2.5.0'
-
+    lombokVersion = '1.16.18'
     arrowVersion = '1.0.0'
 
 
@@ -41,6 +41,10 @@ ext {
     dexmakerVersion = '1.0'
     espressoVersion = '2.0'
     testingSupportLibVersion = '0.1'
+
+    globalDependencies = [
+            lombok: "org.projectlombok:lombok:${lombokVersion}",
+    ]
 
     presentationDependencies = [
             daggerCompiler:     "com.google.dagger:dagger-compiler:${daggerVersion}",

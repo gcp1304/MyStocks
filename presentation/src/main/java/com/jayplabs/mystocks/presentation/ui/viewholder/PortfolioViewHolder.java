@@ -25,6 +25,6 @@ public class PortfolioViewHolder extends BaseViewHolder<PortfolioItemBinding, St
         Log.d(TAG, "bind: StockID : " + stockModel.getStockId());
         mBinding.symbolTv.setText(stockModel.getSymbol());
         mBinding.quantityTv.setText(stockModel.getQuantity());
-        mBinding.priceTv.setText(stockModel.getPrice());
+        mBinding.priceTv.setText(String.valueOf(stockModel.getPrice()));
     }
 }

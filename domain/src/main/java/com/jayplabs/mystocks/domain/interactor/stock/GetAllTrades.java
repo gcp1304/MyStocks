@@ -8,7 +8,6 @@ import io.reactivex.Scheduler;
 import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.inject.Singleton;
 
 public class GetAllTrades extends UseCaseForAllData<List<StockDto>, StockRepository> {
 

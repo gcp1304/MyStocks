@@ -36,6 +36,11 @@ dependencies {
     def presentationDependencies = rootProject.ext.presentationDependencies
     def presentationTestDependencies = rootProject.ext.presentationTestDependencies
 
+    def globalDependencies = rootProject.ext.globalDependencies
+    compile globalDependencies.lombok
+    annotationProcessor globalDependencies.lombok
+    androidTestAnnotationProcessor globalDependencies.lombok
+    testAnnotationProcessor globalDependencies.lombok
 
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     compile project(':data')

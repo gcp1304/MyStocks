@@ -2,18 +2,14 @@ package com.jayplabs.mystocks.presentation.mvp.presenter;
 
 import com.jayplabs.mystocks.common.data.manager.NetworkManager;
 import com.jayplabs.mystocks.common.presentation.mvp.presenter.BasePresenter;
-import com.jayplabs.mystocks.domain.interactor.DefaultObserver;
 import com.jayplabs.mystocks.domain.interactor.stock.CreateTrade;
 import com.jayplabs.mystocks.domain.interactor.stock.DeleteTrade;
 import com.jayplabs.mystocks.domain.interactor.stock.GetAllTrades;
 import com.jayplabs.mystocks.domain.interactor.stock.RetrieveTrade;
 import com.jayplabs.mystocks.domain.interactor.stock.UpdateTrade;
-import com.jayplabs.mystocks.domain.objects.StockDto;
 import com.jayplabs.mystocks.presentation.di.scope.ViewScope;
 import com.jayplabs.mystocks.presentation.mapper.StockDtoModelMapper;
-import com.jayplabs.mystocks.presentation.mvp.model.StockModel;
 import com.jayplabs.mystocks.presentation.mvp.view.StockTradesView;
-import java.util.List;
 import javax.inject.Inject;
 
 @ViewScope

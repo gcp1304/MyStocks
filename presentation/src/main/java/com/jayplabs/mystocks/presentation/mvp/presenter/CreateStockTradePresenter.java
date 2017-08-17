@@ -10,6 +10,7 @@ import com.jayplabs.mystocks.domain.interactor.stock.UpdateTrade;
 import com.jayplabs.mystocks.presentation.di.scope.ViewScope;
 import com.jayplabs.mystocks.presentation.mapper.StockDtoModelMapper;
 import com.jayplabs.mystocks.presentation.mvp.view.StockTradesView;
+import java.util.UUID;
 import javax.inject.Inject;
 
 @ViewScope
@@ -47,5 +48,9 @@ public class CreateStockTradePresenter extends BasePresenter<StockTradesView> {
     @Override
     public void refreshData() {
 
+    }
+
+    private String createStockID() {
+        return UUID.randomUUID().toString().replaceAll("-", "").toUpperCase();
     }
 }
