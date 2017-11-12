@@ -31,6 +31,7 @@ ext {
     okHttpVersion = '2.5.0'
     lombokVersion = '1.16.18'
     arrowVersion = '1.0.0'
+    rxPreferences = '2.0.0-RC3'
 
 
     //Testing
@@ -55,7 +56,8 @@ ext {
             /*rxJava:             "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
             rxAndroid:          "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
             javaxAnnotation:    "javax.annotation:jsr250-api:${javaxAnnotationVersion}"*/
-            constraintLayout:   "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}"
+            constraintLayout:   "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}",
+            rxPreferences:      "com.f2prateek.rx.preferences2:rx-preferences:${rxPreferences}"
     ]
 
     presentationTestDependencies = [

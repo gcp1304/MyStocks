@@ -9,39 +9,24 @@ import com.jayplabs.mystocks.domain.interactor.stock.RetrieveTrade;
 import com.jayplabs.mystocks.domain.interactor.stock.UpdateTrade;
 import com.jayplabs.mystocks.presentation.di.scope.ViewScope;
 import com.jayplabs.mystocks.presentation.mapper.StockDtoModelMapper;
-import com.jayplabs.mystocks.presentation.mvp.view.StockTradesView;
+import com.jayplabs.mystocks.presentation.mvp.view.NewStockView;
 import java.util.UUID;
 import javax.inject.Inject;
 
 @ViewScope
-public class CreateStockTradePresenter extends BasePresenter<StockTradesView> {
+public class NewStockPresenter extends BasePresenter<NewStockView> {
 
     private CreateTrade mCreateTrade;
-
-    private DeleteTrade mDeleteTrade;
-
-    private GetAllTrades mGetAllTrades;
-
-    private RetrieveTrade mRetrieveTrade;
-
-    private UpdateTrade mUpdateTrade;
 
     private StockDtoModelMapper mStockDtoModelMapper;
 
     @Inject
-    public CreateStockTradePresenter(
+    public NewStockPresenter(
         final NetworkManager networkManager,
-        final CreateTrade createTrade, final DeleteTrade deleteTrade,
-        final GetAllTrades getAllTrades,
-        final RetrieveTrade retrieveTrade,
-        final UpdateTrade updateTrade,
+        final CreateTrade createTrade,
         final StockDtoModelMapper stockDtoModelMapper) {
         super(networkManager);
         mCreateTrade = createTrade;
-        mDeleteTrade = deleteTrade;
-        mGetAllTrades = getAllTrades;
-        mRetrieveTrade = retrieveTrade;
-        mUpdateTrade = updateTrade;
         mStockDtoModelMapper = stockDtoModelMapper;
     }
 

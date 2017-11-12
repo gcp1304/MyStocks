@@ -10,4 +10,12 @@ public interface PortfolioView extends View {
 
     void displayToast(String message);
 
+    void transitionToNewStock();
+
+    void transitionToOption();
+
+    void transitionToCash();
+
+    void transisitonToDividend();
+
 }

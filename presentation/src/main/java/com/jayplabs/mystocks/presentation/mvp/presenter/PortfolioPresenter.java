@@ -35,6 +35,10 @@ public class PortfolioPresenter extends BasePresenter<PortfolioView> {
 
     }
 
+    public void onAddStockButtonClicked() {
+        mView.transitionToNewStock();
+    }
+
     public void createDummyStockApple() {
         StockModel stockModel = new StockModel();
         stockModel.setStockId(createStockID());

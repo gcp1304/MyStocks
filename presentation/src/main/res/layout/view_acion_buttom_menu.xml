@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+  <ImageView
+    android:background="@drawable/round_button_border_shadow"
+    android:scaleType="center"
+    android:src="@drawable/ic_common"
+    android:id="@+id/fab_stock"
+    android:padding="2dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:visibility="visible" />
+
+  <ImageView
+    android:background="@drawable/round_button_border_shadow"
+    android:scaleType="center"
+    android:id="@+id/fab_option"
+    android:src="@drawable/ic_common"
+    android:padding="2dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:visibility="visible" />
+
+  <ImageView
+    android:background="@drawable/round_button_border_shadow"
+    android:scaleType="center"
+    android:id="@+id/fab_dividend"
+    android:src="@drawable/ic_common"
+    android:padding="2dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:visibility="visible" />
+
+  <ImageView
+    android:background="@drawable/round_button_border_shadow"
+    android:scaleType="center"
+    android:id="@+id/fab_cash"
+    android:src="@drawable/ic_common"
+    android:padding="2dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:visibility="visible" />
+
+  <ImageView
+    android:rotation="45"
+    android:background="@drawable/round_button_border_shadow"
+    android:padding="3dp"
+    android:src="@drawable/ic_close"
+    android:scaleType="center"
+    android:id="@+id/fab_menu"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:visibility="visible" />
+</merge>

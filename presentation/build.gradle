@@ -37,21 +37,22 @@ dependencies {
     def presentationTestDependencies = rootProject.ext.presentationTestDependencies
 
     def globalDependencies = rootProject.ext.globalDependencies
+    implementation 'com.google.android.gms:play-services-auth:11.4.2'
     compile globalDependencies.lombok
     annotationProcessor globalDependencies.lombok
     androidTestAnnotationProcessor globalDependencies.lombok
     testAnnotationProcessor globalDependencies.lombok
 
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     compile project(':data')
     compile project(':domain')
     compile project(':common')
 
     compile presentationDependencies.dagger
     annotationProcessor presentationDependencies.daggerCompiler
-    compile presentationDependencies.constraintLayout
+    implementation presentationDependencies.constraintLayout
     compile presentationDependencies.butterknife
     annotationProcessor presentationDependencies.butterknifeCompiler
+    compile presentationDependencies.rxPreferences
 
     androidTestCompile presentationTestDependencies.mockito
     androidTestCompile presentationTestDependencies.dexmaker

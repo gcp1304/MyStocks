@@ -9,11 +9,11 @@ import com.jayplabs.mystocks.domain.interactor.stock.RetrieveTrade;
 import com.jayplabs.mystocks.domain.interactor.stock.UpdateTrade;
 import com.jayplabs.mystocks.presentation.di.scope.ViewScope;
 import com.jayplabs.mystocks.presentation.mapper.StockDtoModelMapper;
-import com.jayplabs.mystocks.presentation.mvp.view.StockTradesView;
+import com.jayplabs.mystocks.presentation.mvp.view.NewStockView;
 import javax.inject.Inject;
 
 @ViewScope
-public class StockTradesPresenter extends BasePresenter<StockTradesView> {
+public class StockTradesPresenter extends BasePresenter<NewStockView> {
 
 
     private GetAllTrades mGetAllTrades;

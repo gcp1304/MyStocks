@@ -62,6 +62,7 @@ public class PortfolioActivity extends
         switch (id) {
             case R.id.action_add_trade:
                 Toast.makeText(this, "Adding Trade", Toast.LENGTH_SHORT).show();
+                mPresenter.onAddStockButtonClicked();
                 break;
             default:
                 break;
@@ -82,7 +83,25 @@ public class PortfolioActivity extends
                 Toast.makeText(PortfolioActivity.this, message, Toast.LENGTH_SHORT).show();
             }
 
+            @Override
+            public void transitionToNewStock() {
+                NewStockActivity.start(PortfolioActivity.this);
+            }
 
+            @Override
+            public void transitionToOption() {
+
+            }
+
+            @Override
+            public void transitionToCash() {
+
+            }
+
+            @Override
+            public void transisitonToDividend() {
+
+            }
         };
     }
 
@@ -102,24 +121,7 @@ public class PortfolioActivity extends
     }
 
     private void initUi() {
-        initToolbar();
         initPortfolioList();
-    }
-
-    @Override
-    protected void onCreate(@Nullable final Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        //insertDummyData();
-    }
-
-    private void insertDummyData() {
-        mPresenter.createDummyStockApple();
-    }
-
-    private void initToolbar() {
-        // setup toolbar
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
     }
 
     private void initPortfolioList() {
